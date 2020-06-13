@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<div class="main-wrap">
+    <div class="cover_1">
+        <div class="img_bg" style="background-image: url({% static 'img/slider-1.jpg' %});" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-12" data-aos="fade-up">
+                        <h2 class="heading">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsa sint amet aliquam velit minima tenetur quisquam beatae molestiae possimus dicta.</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8" data-aos="fade-up">
+                    <img src="{{meal.image.url}}" alt="{{meal.name}}" style="width: 500px; height: 0px;">
+                    <h4>{{meal.name}}</h4>
+                    <p>{{meal.description}}</p>
+                    <p>Price: Rs.{{meal.price}}</p>
+                    <p>{{meal.people}}</p>
+                    <p>{{meal.preparation_time}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

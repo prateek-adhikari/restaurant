@@ -1,8 +1,235 @@
-{% extends 'meals/base.html' %} {% block content %} {% load static %}
-<div>
-    {% for meal in meal_list %}
-    <img src="{{meal.image.url}}"></img>
-    <h3>{{meal.name}}</h3>
-    {% endfor %}
+{% extends 'base.html' %} {% block content %} {% load static %}
+<div class="main-wrap">
+    <div class="cover_1">
+        <div class="img_bg" style="background-image: url({% static 'img/slider-1.jpg' %});" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-12" data-aos="fade-up">
+                        <h2 class="heading">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsa sint amet aliquam velit minima tenetur quisquam beatae molestiae possimus dicta.</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- .cover_1 -->
+
+    <!-- .section -->
+
+    <div class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-7 text-center" data-aos="fade-up">
+                    <h2 class="mb-4">Our Specialties</h2>
+                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae eum voluptatem odio expedita laborum fugit repudiandae dolorem consectetur.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- .section -->
+
+    <div class="section pt-0 pb-0">
+
+        <div class="menus d-flex bg-light">
+            <div class="d-flex item">
+                <div class="image" style="background-image: url(img/img_1.jpg);" data-aos="fade"></div>
+                <div class="text">
+                    <h3>Grilled Egg With Garlic</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo quisquam saepe quaerat.</p>
+                    <p class="price">$5.00</p>
+                </div>
+            </div>
+            <!-- .item -->
+
+            <div class="d-flex item">
+                <div class="image order-2 order-md-1" style="background-image: url(img/img_2.jpg);" data-aos="fade" data-aos-delay="100"></div>
+                <div class="text order-1 order-md-2">
+                    <h3>Organic Tomato Salad</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo quisquam saepe quaerat.</p>
+                    <p class="price">$6.00</p>
+                </div>
+            </div>
+            <!-- .item -->
+
+            <div class="d-flex item">
+                <div class="image order-1 order-md-2 order-lg-2 order-xl-1" style="background-image: url(img/img_3.jpg);" data-aos="fade" data-aos-delay="200"></div>
+                <div class="text order-2 order-md-1 order-lg-1 order-xl-2">
+                    <h3>Flatbread</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo quisquam saepe quaerat.</p>
+                    <p class="price">$9.00</p>
+
+                </div>
+            </div>
+            <!-- .item -->
+
+            <div class="d-flex item">
+                <div class="image order-2" style="background-image: url(img/img_4.jpg);" data-aos="fade" data-aos-delay="300"></div>
+                <div class="text order-1 mb-3">
+                    <h3>Rack Of Lamb</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo quisquam saepe quaerat.</p>
+                    <p class="price">$13.00</p>
+                </div>
+            </div>
+            <!-- .item -->
+
+            <div class="d-flex item">
+                <div class="image order-1 order-lg-1 order-xl-2" style="background-image: url(img/img_5.jpg);" data-aos="fade" data-aos-delay="400"></div>
+                <div class="text order-2 order-lg-2 order-xl-1">
+                    <h3>Eggplant Parmigiana</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo quisquam saepe quaerat.</p>
+                    <p class="price">$9.00</p>
+                </div>
+            </div>
+            <!-- .item -->
+
+            <div class="d-flex item">
+                <div class="image order-2 order-md-1 order-lg-1 order-xl-2" style="background-image: url(img/img_6.jpg);" data-aos="fade" data-aos-delay="500"></div>
+                <div class="text order-1 order-md-2 order-lg-2 order-xl-1">
+                    <h3>Spicy Meatballs</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo quisquam saepe quaerat.</p>
+                    <p class="price">$7.00</p>
+                </div>
+            </div>
+            <!-- .item -->
+
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8" data-aos="fade-up">
+
+                    <h2 class="mb-5 text-center">Menu List with Price</h2>
+
+                    <ul class="nav site-tab-nav" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="pills-breakfast-tab" data-toggle="pill" href="#pills-breakfast" role="tab" aria-controls="pills-breakfast" aria-selected="true">Breakfast</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-lunch-tab" data-toggle="pill" href="#pills-lunch" role="tab" aria-controls="pills-lunch" aria-selected="false">Brunch</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-dinner-tab" data-toggle="pill" href="#pills-dinner" role="tab" aria-controls="pills-dinner" aria-selected="false">Dinner</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-breakfast" role="tabpanel" aria-labelledby="pills-breakfast-tab">
+                            {% for meal in meal_list %}
+                            <div class="d-block d-md-flex menu-food-item">
+                                <div class="text order-1 mb-3">
+                                    <h3><a href="{% url 'mealdetail' meal.slug %}">{{meal.name}}</a></h3>
+                                    <p>{{meal.description}}</p>
+                                </div>
+                                <div class="price order-2">
+                                    <strong>Rs. {{meal.price}}</strong>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <!-- .menu-food-item -->
+                        </div>
+                        <div class="tab-pane fade" id="pills-lunch" role="tabpanel" aria-labelledby="pills-lunch-tab">
+
+                            <div class="d-block d-md-flex menu-food-item">
+                                <div class="text order-1 mb-3">
+                                    <h3><a href="#">Jumbo Lump Crab Stack</a></h3>
+                                    <p>Spinach and artichokes in a creamy cheese dip with warm tortilla chips &amp; salsa.</p>
+                                </div>
+                                <div class="price order-2">
+                                    <strong>$12.49</strong>
+                                </div>
+                            </div>
+                            <!-- .menu-food-item -->
+
+                            <div class="d-block d-md-flex menu-food-item">
+                                <div class="text order-1 mb-3">
+                                    <h3><a href="#">Jamaican Chicken Wings</a></h3>
+                                    <p>Crisp tortilla and plantain chips covered with lightly spiced ground beef, melted cheese, pickled jalapeños, guacamole, sour cream and salsa.</p>
+                                </div>
+                                <div class="price order-2">
+                                    <strong>$15.99</strong>
+                                </div>
+                            </div>
+                            <!-- .menu-food-item -->
+
+                            <div class="d-block d-md-flex menu-food-item">
+                                <div class="text order-1 mb-3">
+                                    <h3><a href="#">Bahamian Seafood Chowder</a></h3>
+                                    <p>A heaping mountain of rings, handmade with Panko breading and shredded coconut flakes.</p>
+                                </div>
+                                <div class="price order-2">
+                                    <strong>$10.99</strong>
+                                </div>
+                            </div>
+                            <!-- .menu-food-item -->
+
+                            <div class="d-block d-md-flex menu-food-item">
+                                <div class="text order-1 mb-3">
+                                    <h3><a href="#">Grilled Chicken &amp; Tropical Fruit on Mixed Greens</a></h3>
+                                    <p>Lobster and tender shrimp, with onions, sweet peppers, spinach and our three cheese blend. Griddled and served with tomato salsa and sour cream.</p>
+                                </div>
+                                <div class="price order-2">
+                                    <strong>$12.99</strong>
+                                </div>
+                            </div>
+                            <!-- .menu-food-item -->
+
+                        </div>
+                        <div class="tab-pane fade" id="pills-dinner" role="tabpanel" aria-labelledby="pills-dinner-tab">
+
+                            <div class="d-block d-md-flex menu-food-item">
+                                <div class="text order-1 mb-3">
+                                    <h3><a href="#">Grilled Top Sirlion Steak</a></h3>
+                                    <p>Spinach and artichokes in a creamy cheese dip with warm tortilla chips &amp; salsa.</p>
+                                </div>
+                                <div class="price order-2">
+                                    <strong>$18.99</strong>
+                                </div>
+                            </div>
+                            <!-- .menu-food-item -->
+
+                            <div class="d-block d-md-flex menu-food-item">
+                                <div class="text order-1 mb-3">
+                                    <h3><a href="#">Steak Oscar</a></h3>
+                                    <p>Crisp tortilla and plantain chips covered with lightly spiced ground beef, melted cheese, pickled jalapeños, guacamole, sour cream and salsa.</p>
+                                </div>
+                                <div class="price order-2">
+                                    <strong>$23.99</strong>
+                                </div>
+                            </div>
+                            <!-- .menu-food-item -->
+
+                            <div class="d-block d-md-flex menu-food-item">
+                                <div class="text order-1 mb-3">
+                                    <h3><a href="#">Skirt Steak Churrasco</a></h3>
+                                    <p>A heaping mountain of rings, handmade with Panko breading and shredded coconut flakes.</p>
+                                </div>
+                                <div class="price order-2">
+                                    <strong>$20.99</strong>
+                                </div>
+                            </div>
+                            <!-- .menu-food-item -->
+
+                            <div class="d-block d-md-flex menu-food-item">
+                                <div class="text order-1 mb-3">
+                                    <h3><a href="#">Grilled Beef Steak</a></h3>
+                                    <p>Lobster and tender shrimp, with onions, sweet peppers, spinach and our three cheese blend. Griddled and served with tomato salsa and sour cream.</p>
+                                </div>
+                                <div class="price order-2">
+                                    <strong>$20.99</strong>
+                                </div>
+                            </div>
+                            <!-- .menu-food-item -->
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+<!-- .main-wrap -->
+
 {% endblock %}
