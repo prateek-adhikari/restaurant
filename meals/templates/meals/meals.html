@@ -1,0 +1,8 @@
+{% extends 'meals/base.html' %} {% block content %} {% load static %}
+<div>
+    {% for meal in meal_list %}
+    <img src="{{meal.image.url}}"></img>
+    <h3>{{meal.name}}</h3>
+    {% endfor %}
+</div>
+{% endblock %}
