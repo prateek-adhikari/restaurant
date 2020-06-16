@@ -29,10 +29,8 @@
                     <p>{{post.content}}</p>
                     <div class="tag-widget post-tag-container mb-5 mt-5">
                         <div class="tagcloud">
-                            <a href="#" class="tag-cloud-link">Life</a>
-                            <a href="#" class="tag-cloud-link">Sport</a>
-                            <a href="#" class="tag-cloud-link">Tech</a>
-                            <a href="#" class="tag-cloud-link">Travel</a>
+                            {% for tag in post.tags.all %}
+                            <a href="#" class="tag-cloud-link">{{tag}}</a> {% endfor %}
                         </div>
                     </div>
 
@@ -40,81 +38,6 @@
                     <div class="pt-5 mt-5">
                         <h3 class="mb-5">6 Comments</h3>
                         <ul class="comment-list">
-                            <li class="comment">
-                                <div class="vcard bio">
-                                    <img src="img/person_1.jpg" alt="Image placeholder">
-                                </div>
-                                <div class="comment-body">
-                                    <h3>Jean Doe</h3>
-                                    <div class="meta">January 9, 2018 at 2:21pm</div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus,
-                                        nihil?
-                                    </p>
-                                    <p><a href="#" class="reply">Reply</a></p>
-                                </div>
-                            </li>
-
-                            <li class="comment">
-                                <div class="vcard bio">
-                                    <img src="img/person_1.jpg" alt="Image placeholder">
-                                </div>
-                                <div class="comment-body">
-                                    <h3>Jean Doe</h3>
-                                    <div class="meta">January 9, 2018 at 2:21pm</div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus,
-                                        nihil?
-                                    </p>
-                                    <p><a href="#" class="reply">Reply</a></p>
-                                </div>
-
-                                <ul class="children">
-                                    <li class="comment">
-                                        <div class="vcard bio">
-                                            <img src="img/person_1.jpg" alt="Image placeholder">
-                                        </div>
-                                        <div class="comment-body">
-                                            <h3>Jean Doe</h3>
-                                            <div class="meta">January 9, 2018 at 2:21pm</div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus,
-                                                nihil?
-                                            </p>
-                                            <p><a href="#" class="reply">Reply</a></p>
-                                        </div>
-
-
-                                        <ul class="children">
-                                            <li class="comment">
-                                                <div class="vcard bio">
-                                                    <img src="img/person_1.jpg" alt="Image placeholder">
-                                                </div>
-                                                <div class="comment-body">
-                                                    <h3>Jean Doe</h3>
-                                                    <div class="meta">January 9, 2018 at 2:21pm</div>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit
-                                                        necessitatibus, nihil?</p>
-                                                    <p><a href="#" class="reply">Reply</a></p>
-                                                </div>
-
-                                                <ul class="children">
-                                                    <li class="comment">
-                                                        <div class="vcard bio">
-                                                            <img src="img/person_1.jpg" alt="Image placeholder">
-                                                        </div>
-                                                        <div class="comment-body">
-                                                            <h3>Jean Doe</h3>
-                                                            <div class="meta">January 9, 2018 at 2:21pm</div>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum
-                                                                impedit necessitatibus, nihil?</p>
-                                                            <p><a href="#" class="reply">Reply</a></p>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
                             <li class="comment">
                                 <div class="vcard bio">
                                     <img src="img/person_1.jpg" alt="Image placeholder">
@@ -173,18 +96,10 @@
                     <div class="sidebar-box">
                         <div class="categories">
                             <h3>Categories</h3>
-                            <li><a href="#">Courses <span>(12)</span></a></li>
-                            <li><a href="#">News <span>(22)</span></a></li>
-                            <li><a href="#">Design <span>(37)</span></a></li>
-                            <li><a href="#">HTML <span>(42)</span></a></li>
-                            <li><a href="#">Web Development <span>(14)</span></a></li>
+                            {% for category in categories %}
+                            <li><a href="#">{{category.category_name}}</a></li>
+                            {% endfor %}
                         </div>
-                    </div>
-                    <div class="sidebar-box">
-                        <img src="img/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4">
-                        <h3>About The Author</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-                        <p><a href="#" class="btn btn-primary btn-sm">Read More</a></p>
                     </div>
 
                     <div class="sidebar-box">
@@ -201,10 +116,6 @@
                         </div>
                     </div>
 
-                    <div class="sidebar-box">
-                        <h3>Paragraph</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-                    </div>
                 </div>
 
             </div>

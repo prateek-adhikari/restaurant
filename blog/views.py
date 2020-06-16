@@ -10,7 +10,9 @@ def post_list(request):
 
 def post_detail(request, pk):
     post = Post.objects.get(pk=pk)
+    categories = Category.objects.all()
     context = {
-        "post": post
+        "post": post,
+        "categories": categories
     }
     return render(request, 'blog/blog-single.html', context)
