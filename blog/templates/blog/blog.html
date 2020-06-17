@@ -40,22 +40,33 @@
             </div>
 
             <div class="row">
+                {% if post.has_other_pages %}
                 <div class="col-md-12">
-                    <div class="pagination">
-                        <span class="step-links">
-                            {% if pages.has_previous %}
-                                <a href="?page=1">&laquo; first</a>
-                                <a href="?page={{ pages.previous_page_number }}">previous</a>
-                            {% endif %}
-                    
-                            <span class="current">
-                                Page {{ pages.number }} of {{ pages.paginator.num_pages }}.
-                            </span> {% if pages.has_next %}
-                        <a href="?page={{ pages.next_page_number }}">next</a>
-                        <a href="?page={{ pages.paginator.num_pages }}">last &raquo;</a> {% endif %}
-                        </span>
-                    </div>
+                    <ul class="pagination custom-pagination">
+                        {% if post.has_previous %}
+                        <li class="page-item prev">
+                            <a href="?page={{post.previous_page_number}}" class="page-link"><i class="fa fa-angle-left"></i></a>
+                        </li>
+                        {% else %}
+                        <li class="disabled"></li>
+                        {% endif %} {% for page in post.paginator.page_range%} {% if post.number == page %}
+                        <li class="page-item active">
+                            <a href="#" class="page-link">{{page}}</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item active">
+                            <a href="?page={{page}}" class="page-link">{{page}}</a>
+                        </li>
+                        {% endif %} {% endfor %} {% if post.has_next%}
+                        <li class="page-item next">
+                            <a href="?page={{post.next_page_number}}" class="page-link"><i class="fa fa-angle-right"></i></a>
+                        </li>
+                        {% else %}
+                        <li class="disabled"></li>
+                        {% endif %}
+                    </ul>
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>

@@ -5,12 +5,18 @@ from taggit.models import Tag
 from blog.forms import CommentForm
 # Create your views here.
 def post_list(request):
-    post = Post.objects.all()
-    paginator = Paginator(post, 1)
-    page = request.GET.get('page')
-    posts = paginator.get_page(page)
+    post_list = Post.objects.all()
+    page = request.GET.get('page', 1)
+    paginator = Paginator(post_list, 3)
+    try:
+        post_list = paginator.page(page)
+    except PageNotAnInteger:
+        post_list = paginator.page(1)
+    except EmptyPage:
+        post_list = paginator.page(paginator.num_pages)
+
     context = {
-        "post": post,
+        "post": post_list
     }
     return render(request, 'blog/blog.html', context)
 
