@@ -65,10 +65,10 @@
                 <!-- .col-md-8 -->
                 <div class="col-md-4 sidebar">
                     <div class="sidebar-box">
-                        <form action="#" class="search-form">
+                        <form action="{% url 'postlist' %}" method="GET" class="search-form">
                             <div class="form-group">
                                 <span class="icon fa fa-search"></span>
-                                <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
+                                <input type="text" name="q" value="{{request.Get.q}}" class="form-control" placeholder="Type a keyword and hit enter">
                             </div>
                         </form>
                     </div>

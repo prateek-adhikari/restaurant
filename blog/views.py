@@ -1,11 +1,20 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
+from django.db.models import Q
 from blog.models import Post,Category, Comment
 from taggit.models import Tag
 from blog.forms import CommentForm
 # Create your views here.
 def post_list(request):
     post_list = Post.objects.all()
+
+    search_query = request.GET.get('q')
+    if search_query:
+        post_list = post_list.filter(
+            Q(title__icontains = search_query)|
+            Q(content__icontains = search_query)
+        )
+
     page = request.GET.get('page', 1)
     paginator = Paginator(post_list, 3)
     try:
