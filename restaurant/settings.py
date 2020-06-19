@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'aboutus',
     'contact',
     'home',
+    'bootstrap4',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +142,5 @@ EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = False
 EMAIL_PORT = 1025
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'

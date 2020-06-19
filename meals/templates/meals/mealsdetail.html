@@ -17,7 +17,7 @@
                 <div class="col-md-8" data-aos="fade-up">
                     <img src="{{meal.image.url}}" alt="{{meal.name}}" style="width: 500px; height: 0px;">
                     <h4>{{meal.name}}</h4>
-                    <p>{{meal.description}}</p>
+                    <p>{{meal.description|safe}}</p>
                     <p>Price: Rs.{{meal.price}}</p>
                     <p>{{meal.people}}</p>
                     <p>{{meal.preparation_time}}</p>
